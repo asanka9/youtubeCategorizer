@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "categorizer-89b74": {
+      "hosting": {
+        "admin4utbecategory": [
+          "categorizer-89b74"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "categorizer-89b74"
+  }
+}
