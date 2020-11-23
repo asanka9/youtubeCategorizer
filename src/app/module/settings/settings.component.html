@@ -1,1 +1,35 @@
-<p>settings works!</p>
+<div class="container mt-2 mb-5">
+
+  <i class="fas fa-chevron-left" size="5px"></i>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form_main">
+        <h4 class="heading"><strong>Add </strong> User <span></span></h4>
+        <div class="form">
+          <form >
+            <input type="text" required="" placeholder="Please input your Email" value="" name="email" class="txt" #email>
+            <input type="text" required="" placeholder="Please input your Password" value="" name="name" class="txt" #password>
+            <input type="submit" value="submit" name="Create User" class="txt2" (click)="createUser(email.value,password.value)" >
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form_main">
+        <h4 class="heading"><strong>Add </strong> Admin <span></span></h4>
+        <div class="form">
+          <form action="contact_send_mail.php" method="post" id="contactFrm" name="contactFrm">
+            <input type="text" required="" placeholder="Please input your Email" value="" name="email" class="txt" #emailAdmin>
+            <input type="text" required="" placeholder="Please input your Password" value="" name="name" class="txt" #passwordAdmin>
+            <input type="submit" value="submit" name="Create Admin" class="txt2">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
