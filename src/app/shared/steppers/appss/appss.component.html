@@ -1,0 +1,40 @@
+
+<div class="row mt-4">
+  <div class="col-6">
+    <cdk-virtual-scroll-viewport itemSize="400" class="scroll-container">
+      <div *ngFor="let item of youtubeList" class="scroll-item">
+        <mat-card class="example-card">
+          <p>Name</p>
+          <mat-card-actions>
+            <button class="btn btn-danger" mat-button>DELETE</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+  <div class="col-6">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">App Name :</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="App Name">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Database Name :</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Database Name">
+      </div>
+      <mat-form-field appearance="none">
+        <mat-label>Favorite food</mat-label>
+        <mat-select >
+          <mat-option>
+            video
+          </mat-option>
+          <mat-option>
+            image
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button type="submit" class="btn btn-success" mat-button>ADD</button>
+    </form>
+  </div>
+</div>

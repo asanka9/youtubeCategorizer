@@ -17,6 +17,14 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import {MatStepperModule} from '@angular/material/stepper';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import { CategoryComponent } from './shared/steppers/category/category.component';
+import { ItemComponent } from './shared/steppers/item/item.component';
+import { AppssComponent } from './shared/steppers/appss/appss.component';
 
 
 @NgModule({
@@ -26,7 +34,11 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     FooterComponent,
     LoginComponent,
     HomeComponent,
-    SettingsComponent
+    SettingsComponent,
+    CategoryComponent,
+    ItemComponent,
+    AppssComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,8 +48,13 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     AngularFirestoreModule,
     MatBadgeModule,
     MatButtonModule,
+    MatStepperModule,
     AngularFireAuthModule,
-    MatDividerModule
+    MatDividerModule,
+    ScrollingModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
