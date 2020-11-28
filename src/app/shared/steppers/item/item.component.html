@@ -2,9 +2,9 @@
   <div class="col-6">
     <mat-form-field appearance="none">
       <mat-label>APP Name</mat-label>
-      <mat-select disableRipple (selectionChange)="onBookChange($event)">
-        <mat-option *ngFor="let food of youtubeList" [value]="food">
-          {{food}}
+      <mat-select disableRipple (selectionChange)="selectApp($event)">
+        <mat-option *ngFor="let app of appList" [value]="app.databaseName">
+          {{app.appName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -13,7 +13,7 @@
   <div class="col-6">
     <mat-form-field appearance="none">
       <mat-label>Category Name</mat-label>
-      <mat-select disableRipple>
+      <mat-select disableRipple (selectionChange)="selectCategory($event)" >
         <mat-option *ngFor="let food of youtubeList" [value]="food">
           {{food}}
         </mat-option>
@@ -40,15 +40,15 @@
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">ID</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        <input type="text" [(ngModel)]="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
           placeholder="Enter ID">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">URL</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="URL">
+        <input [(ngModel)]="url" type="text" class="form-control" id="exampleInputPassword1" placeholder="URL">
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary form-control">Submit</button>
+        <button type="submit" (click)="addItem()" class="btn btn-primary form-control">Submit</button>
 
       </div>
     </form>

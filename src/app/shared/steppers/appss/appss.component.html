@@ -3,7 +3,11 @@
     <cdk-virtual-scroll-viewport itemSize="400" class="scroll-container">
       <div *ngFor="let item of appList" class="scroll-item">
         <mat-card class="example-card">
-          <p>{{ item.payload.doc.data().name }}</p>
+          <p><strong>App Name :</strong> {{ item.payload.doc.data().appName }}</p>
+          <p><strong>Database Name :</strong> {{ item.payload.doc.data().databaseName }}</p>
+          <p><strong>Type :</strong> {{ item.payload.doc.data().type }}</p>
+
+
           <mat-card-actions>
             <button class="btn btn-danger" (click)="deleteApp(item)" mat-button>DELETE</button>
           </mat-card-actions>
@@ -15,21 +19,21 @@
     <div>
       <div class="form-group">
         <label for="exampleInputEmail1">App Name :</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="appName"
           placeholder="App Name">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Database Name :</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Database Name">
+        <input  [(ngModel)]="databaseName" type="text" class="form-control" id="exampleInputPassword1" placeholder="Database Name">
       </div>
       <mat-form-field>
         <mat-label>Select Type :</mat-label>
         <mat-select [(value)]="type">
           <mat-option value="video">
-            video
+            Youtube App
           </mat-option>
           <mat-option value="image">
-            image
+            Facebook App
           </mat-option>
         </mat-select>
       </mat-form-field>

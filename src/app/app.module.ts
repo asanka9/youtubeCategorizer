@@ -25,6 +25,7 @@ import {MatCardModule} from '@angular/material/card';
 import { CategoryComponent } from './shared/steppers/category/category.component';
 import { ItemComponent } from './shared/steppers/item/item.component';
 import { AppssComponent } from './shared/steppers/appss/appss.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { AppssComponent } from './shared/steppers/appss/appss.component';
     ScrollingModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

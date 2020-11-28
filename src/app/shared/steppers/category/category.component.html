@@ -3,8 +3,8 @@
     <mat-form-field appearance="none">
       <mat-label>Select APP</mat-label>
       <mat-select disableRipple (selectionChange)="onBookChange($event)">
-        <mat-option *ngFor="let food of youtubeList" [value]="food">
-          {{food}}
+        <mat-option *ngFor="let app of appList" [value]="app.databaseName">
+          {{app.appName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -16,7 +16,7 @@
 <div class="row mt-4">
   <div class="col-6">
     <cdk-virtual-scroll-viewport itemSize="400" class="scroll-container">
-      <div *ngFor="let item of youtubeList" class="scroll-item">
+      <div *ngFor="let item of appList" class="scroll-item">
         <mat-card class="example-card">
           <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
             alt="Photo of a Shiba Inu">
@@ -31,18 +31,17 @@
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Category Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Enter Category">
+        <input  type="text" class="form-control"  [(ngModel)]="category_Name" placeholder="Enter Category">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">DataBase Name</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Database Name">
+        <input  type="text" class="form-control"  placeholder="Database Name" [(ngModel)]="database_Name">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Image URL</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Image  URL">
+        <input  type="text" class="form-control" placeholder="Image  URL" [(ngModel)]="url_">
       </div>
-      <button type="submit" class="btn btn-success" mat-button>ADD</button>
+      <button type="submit" (click)="createCategory()" class="btn btn-success" mat-button>ADD</button>
     </form>
   </div>
 </div>

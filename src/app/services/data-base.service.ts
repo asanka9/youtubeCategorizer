@@ -23,6 +23,10 @@ export class DataBaseService {
     return this.firestore.collection("Apps").snapshotChanges();
   }
 
+  getAllApps01(){
+    return this.firestore.collection("Apps").get();
+  }
+
   deleteApp(data) {
     return this.firestore.collection("Apps").doc(data.payload.doc.id).delete();
  }

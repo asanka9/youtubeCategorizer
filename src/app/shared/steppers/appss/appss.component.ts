@@ -12,6 +12,8 @@ export class AppssComponent implements OnInit {
   appList = []
 
   type:string;
+  appName :string;
+  databaseName :string;
 
   constructor(private database : DataBaseService) { }
 
@@ -23,13 +25,16 @@ export class AppssComponent implements OnInit {
 
   addApp(){
     this.database.createNewApp(
-      {'name':2121}
+      {
+        'type':this.type,
+        'appName':this.appName,
+        'databaseName':this.databaseName
+      }
     );
   }
 
   deleteApp(data){
-    //this.database.deleteApp(data);
-    this.database.createNewItem({'name':2121},'_a','_b');
+    this.database.deleteApp(data);
   }
 
 
