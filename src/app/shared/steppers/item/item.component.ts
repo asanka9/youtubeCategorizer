@@ -10,8 +10,12 @@ import {DataBaseService} from 'src/app/services/data-base.service';
 export class ItemComponent implements OnInit {
 
   youtubeList = [1,2,3,34,4]
+
   appList = []
   categoryList = []
+  itemList = []
+  type:boolean;
+
   id : string;
   url : string;
   appName : string;
@@ -35,16 +39,31 @@ export class ItemComponent implements OnInit {
   }
 
   selectApp(event){
-    this.appName = event.value;
+    this.appName = event.value.databaseName;
+
+    this.database.getAllCategories(this.appName).subscribe(
+      res=>  (this.categoryList = res)
+    );
   }
 
   selectCategory(event){
-    this.categoryName = event.value;
+    this.categoryName = event.value.name;
+    if (event.value.type=="image") {
+      this.type == false;
+    } else {
+      this.type == true;
+    }
+    this.database.getAllItem(this.appName,this.categoryName).subscribe(
+      res => (this.itemList = res)
+    );
   }
 
-  addItem(){
-    alert(this.id)
-    this.database.createNewItem({'id':this.id,'url':this.url},'21sdsd2','21212');
+  addItem(id,url){
+    this.database.createNewItem({'id':id,'url':url},this.appName,this.categoryName);
+  }
+
+  deleteItem(data){
+    this.database.deletItem(data,this.appName,this.categoryName)
   }
 
 }

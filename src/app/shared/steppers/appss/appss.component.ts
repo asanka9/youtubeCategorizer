@@ -11,7 +11,6 @@ export class AppssComponent implements OnInit {
   youtubeList = [1,2,3,34,4]
   appList = []
 
-  type:string;
   appName :string;
   databaseName :string;
 
@@ -26,7 +25,6 @@ export class AppssComponent implements OnInit {
   addApp(){
     this.database.createNewApp(
       {
-        'type':this.type,
         'appName':this.appName,
         'databaseName':this.databaseName
       }

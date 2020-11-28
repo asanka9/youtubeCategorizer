@@ -11,6 +11,8 @@ import { NgModule }      from '@angular/core';
 export class CategoryComponent implements OnInit {
 
   appList = []
+  categoryList = []
+  type:string;
 
 
   constructor(private database : DataBaseService) { }
@@ -21,30 +23,46 @@ export class CategoryComponent implements OnInit {
   appName : string;
 
   ngOnInit(): void {
+
+    /*
     this.database.getAllApps01().subscribe(
       (res)=>{
         res.forEach(element => {
-          this.appList.push(element.data())
+          this.appList.push(element.data()['databaseName'])
         });
       }
     );
+    */
+
+    this.database.getAllApps().subscribe(
+      res=>  (this.appList = res)
+    );
+
   }
 
-  onBookChange(event){
+  onAppChange(event){
     this.appName = event.value;
-    alert(this.appName)
-
+    this.database.getAllCategories(this.appName).subscribe(
+      res=>  (this.categoryList = res)
+    );
   }
 
-  createCategory(){
+
+
+  createCategory(name,databaseName,url){
 
     this.database.createNewCategory(
       {
-        'name': this.category_Name,
-        'databaseName': this.database_Name,
-        'url': this.url_
+        'name': name,
+        'databaseName': databaseName,
+        'url': url,
+        'type':this.type
       }
-      ,'pop3');
+      ,this.appName);
+  }
+
+  deleteCategory(data){
+    this.database.deleteCategory(data,this.appName);
   }
 
 }

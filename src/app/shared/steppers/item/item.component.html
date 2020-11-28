@@ -3,7 +3,7 @@
     <mat-form-field appearance="none">
       <mat-label>APP Name</mat-label>
       <mat-select disableRipple (selectionChange)="selectApp($event)">
-        <mat-option *ngFor="let app of appList" [value]="app.databaseName">
+        <mat-option *ngFor="let app of appList" [value]="app">
           {{app.appName}}
         </mat-option>
       </mat-select>
@@ -14,8 +14,8 @@
     <mat-form-field appearance="none">
       <mat-label>Category Name</mat-label>
       <mat-select disableRipple (selectionChange)="selectCategory($event)" >
-        <mat-option *ngFor="let food of youtubeList" [value]="food">
-          {{food}}
+        <mat-option *ngFor="let item of categoryList" [value]="item">
+          {{item.payload.doc.data().name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -25,12 +25,14 @@
 <div class="row mt-4">
   <div class="col-6">
     <cdk-virtual-scroll-viewport itemSize="400" class="scroll-container">
-      <div *ngFor="let item of youtubeList" class="scroll-item">
+      <div *ngFor="let item of itemList" class="scroll-item">
         <mat-card class="example-card">
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-            alt="Photo of a Shiba Inu">
+          <div *ngIf="type">
+            <img mat-card-image [src]="item.payload.doc.data().url">
+          </div>
+
           <mat-card-actions>
-            <button mat-button>DELETE</button>
+            <button (click)="deleteItem(item)" mat-button>DELETE</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -40,15 +42,15 @@
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">ID</label>
-        <input type="text" [(ngModel)]="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        <input type="text" #id class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
           placeholder="Enter ID">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">URL</label>
-        <input [(ngModel)]="url" type="text" class="form-control" id="exampleInputPassword1" placeholder="URL">
+        <input #url type="text" class="form-control" id="exampleInputPassword1" placeholder="URL">
       </div>
       <div class="form-group">
-        <button type="submit" (click)="addItem()" class="btn btn-primary form-control">Submit</button>
+        <button type="submit" (click)="addItem(id.value,url.value)" class="btn btn-primary form-control">Submit</button>
 
       </div>
     </form>

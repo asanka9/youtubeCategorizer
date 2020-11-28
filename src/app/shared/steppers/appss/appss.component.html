@@ -26,18 +26,7 @@
         <label for="exampleInputPassword1">Database Name :</label>
         <input  [(ngModel)]="databaseName" type="text" class="form-control" id="exampleInputPassword1" placeholder="Database Name">
       </div>
-      <mat-form-field>
-        <mat-label>Select Type :</mat-label>
-        <mat-select [(value)]="type">
-          <mat-option value="video">
-            Youtube App
-          </mat-option>
-          <mat-option value="image">
-            Facebook App
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      {{type}}
+
       <button type="submit" class="btn btn-success"  (click)="addApp()" mat-button>ADD</button>
     </div>
   </div>
