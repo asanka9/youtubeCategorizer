@@ -1,6 +1,8 @@
 import { Component, ViewEncapsulation, ViewChild, ElementRef, PipeTransform, Pipe, OnInit } from '@angular/core';
 import {DataBaseService} from 'src/app/services/data-base.service';
 import { DomSanitizer } from "@angular/platform-browser";
+import firebase from 'firebase/app';
+import Timestamp = firebase.firestore.Timestamp;
 
 @Pipe({ name: 'safe' })
 export class SafePipe implements PipeTransform {
@@ -74,16 +76,16 @@ export class ItemComponent implements OnInit {
     );
   }
 
-  addItem(id,url){
+  addItem(url){
     if (this.type) {
       alert('7676')
       var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
       var match = url.match(regExp);
       alert(match[7] )
-      this.database.createNewItem({'id':id,'v_id':match[7] ,'url':url,'em_url':'https://www.youtube.com/embed/'+match[7]  },this.appName,this.categoryName);
+      this.database.createNewItem({'id':firebase.firestore.FieldValue.serverTimestamp(),'v_id':match[7] ,'url':url,'em_url':'https://www.youtube.com/embed/'+match[7]  },this.appName,this.categoryName);
     } else {
 
-      this.database.createNewItem({'id':id,'url':url},this.appName,this.categoryName);
+      this.database.createNewItem({'id':firebase.firestore.FieldValue.serverTimestamp(),'url':url},this.appName,this.categoryName);
     }
 
   }

@@ -26,6 +26,7 @@ import { CategoryComponent } from './shared/steppers/category/category.component
 import { ItemComponent,SafePipe } from './shared/steppers/item/item.component';
 import { AppssComponent } from './shared/steppers/appss/appss.component';
 import {FormsModule} from '@angular/forms';
+import { ReportComponent } from './module/report/report.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {FormsModule} from '@angular/forms';
     CategoryComponent,
     ItemComponent,
     AppssComponent,
-    SafePipe
+    SafePipe,
+    ReportComponent
 
 
   ],

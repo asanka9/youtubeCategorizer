@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DataBaseService} from 'src/app/services/data-base.service';
 import { NgModule }      from '@angular/core';
+import firebase from 'firebase/app';
+import Timestamp = firebase.firestore.Timestamp;
 
 
 @Component({
@@ -51,13 +53,13 @@ export class CategoryComponent implements OnInit {
 
   createCategory(name,databaseName,url){
 
-    alert(this.type)
     this.database.createNewCategory(
       {
         'name': name,
         'databaseName': databaseName,
         'url': url,
-        'type':this.type
+        'type':this.type,
+        'id':firebase.firestore.FieldValue.serverTimestamp(),
       }
       ,this.appName);
   }
