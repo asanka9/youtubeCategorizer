@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent  } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -23,7 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { CategoryComponent } from './shared/steppers/category/category.component';
-import { ItemComponent } from './shared/steppers/item/item.component';
+import { ItemComponent,SafePipe } from './shared/steppers/item/item.component';
 import { AppssComponent } from './shared/steppers/appss/appss.component';
 import {FormsModule} from '@angular/forms';
 
@@ -39,6 +39,8 @@ import {FormsModule} from '@angular/forms';
     CategoryComponent,
     ItemComponent,
     AppssComponent,
+    SafePipe
+
 
   ],
   imports: [

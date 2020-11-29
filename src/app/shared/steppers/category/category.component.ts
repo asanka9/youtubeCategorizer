@@ -51,6 +51,7 @@ export class CategoryComponent implements OnInit {
 
   createCategory(name,databaseName,url){
 
+    alert(this.type)
     this.database.createNewCategory(
       {
         'name': name,

@@ -12,6 +12,7 @@ export class DataBaseService {
   //Apps Data Base
   createNewApp(data) {
     return new Promise<any>((resolve, reject) =>{
+
         this.firestore
             .collection("Apps")
             .add(data)
@@ -25,6 +26,11 @@ export class DataBaseService {
 
   getAllApps01(){
     return this.firestore.collection("Apps").get();
+  }
+
+
+  getAllCategories01(appname){
+    return this.firestore.collection(appname).get();
   }
 
   deleteApp(data) {

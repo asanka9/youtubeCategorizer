@@ -15,7 +15,7 @@
       <mat-label>Category Name</mat-label>
       <mat-select disableRipple (selectionChange)="selectCategory($event)" >
         <mat-option *ngFor="let item of categoryList" [value]="item">
-          {{item.payload.doc.data().name}}
+          {{item.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -27,12 +27,16 @@
     <cdk-virtual-scroll-viewport itemSize="400" class="scroll-container">
       <div *ngFor="let item of itemList" class="scroll-item">
         <mat-card class="example-card">
-          <div *ngIf="type">
-            <img mat-card-image [src]="item.payload.doc.data().url">
+          <div *ngIf="!type">
+            <img style="max-width: 400px; max-height: 300px;" mat-card-image [src]="item.payload.doc.data().url">
           </div>
-
+          <div *ngIf="type">
+            <iframe width="450" height="250" [src]="item.payload.doc.data().em_url | safe"
+            ></iframe>
+            {{item.payload.doc.data().url}}
+          </div>
           <mat-card-actions>
-            <button (click)="deleteItem(item)" mat-button>DELETE</button>
+            <button (click)="deleteItem(item)" class="btn btn-danger" mat-button>DELETE</button>
           </mat-card-actions>
         </mat-card>
       </div>
