@@ -3,9 +3,21 @@
     <div class="col-6">
       <p>Create With App</p>
       <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="none">
+            <mat-label>APP Name</mat-label>
+            <mat-select disableRipple (selectionChange)="selectApp($event)">
+              <mat-option *ngFor="let app of appList" [value]="app">
+                {{app.appName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
+        </div>
       </div>
-      <div class="row">
+      <mat-divider></mat-divider>
+
+      <div class="row mt-5">
         <div class="form-group">
           <button class="form-control btn btn-outline-success">Create Categories</button>
         </div>
@@ -14,9 +26,30 @@
     <div class="col-6">
       <p>Create With Category</p>
       <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="none">
+            <mat-label>APP Name</mat-label>
+            <mat-select disableRipple (selectionChange)="selectApp($event)">
+              <mat-option *ngFor="let app of appList" [value]="app">
+                {{app.appName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="none">
+            <mat-label>Category Name</mat-label>
+            <mat-select disableRipple (selectionChange)="selectCategory($event)" >
+              <mat-option *ngFor="let item of categoryList" [value]="item">
+                {{item.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="row">
+      <mat-divider></mat-divider>
+      <div class="row mt-5">
         <div class="form-group">
           <button class="form-control btn btn-outline-primary">Create Items</button>
         </div>

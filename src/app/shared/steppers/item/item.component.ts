@@ -47,10 +47,7 @@ export class ItemComponent implements OnInit {
     );
   }
 
-  onBookChange(event){
-    alert(event.value);
 
-  }
 
   selectApp(event){
     this.appName = event.value.databaseName;
