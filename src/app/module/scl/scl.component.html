@@ -1,0 +1,89 @@
+<div class="container mb-5">
+  <div style="border: 2px solid black; padding: 5px; background-color: bisque; padding-left: 20px; margin-top: 30px;">
+    <div class="row ">
+      <div class="col-4">
+        <mat-form-field appearance="none">
+          <mat-label>Select Subject  :</mat-label>
+          <mat-select disableRipple  [(value)]="selectedSubject" >
+            <mat-option *ngFor="let num of numof_questions" [value]="num">
+              {{num}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field appearance="none">
+          <mat-label>Select Lesson  :</mat-label>
+          <mat-select disableRipple  [(value)]="selectedTopic" >
+            <mat-option *ngFor="let num of numof_questions" [value]="num">
+              {{num}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field appearance="none">
+          <mat-label>Select Sub Lesson  :</mat-label>
+          <mat-select disableRipple [(value)]="selectedSubTopic"  >
+            <mat-option *ngFor="let num of numof_questions" [value]="num">
+              {{num}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field appearance="none">
+          <mat-label>Question Type :</mat-label>
+          <mat-select disableRipple  [(value)]="typeOfQuestion" >
+            <mat-option *ngFor="let num of numof_questions" [value]="num">
+              {{num}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="none">
+          <mat-label>Number Of Questions :</mat-label>
+          <mat-select disableRipple (selectionChange)="selectedNumOfAnwsers($event)"  >
+            <mat-option *ngFor="let num of numof_questions" [value]="num">
+              {{num}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <mat-divider class="mt-4"></mat-divider>
+  <div class="row">
+    <mat-form-field class="example-full-width" style="width: 80%;">
+      <textarea matInput placeholder="Question"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="ml-5" >
+
+    <table>
+      <tr  *ngFor="let item of anwsersList; let i = index">
+        <td style="width: 50px;">
+          <strong>{{ i+1}})</strong>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width "  style="float: left;" class="row " style="width: 500px;">
+            <textarea style="float: left;" matInput  placeholder="Anwser 0{{i+1}}"></textarea>
+          </mat-form-field>
+        </td>
+        <td>
+
+        </td>
+      </tr>
+    </table>
+
+
+
+  </div>
+  <div class="row mt-5 pt-5">
+    <button class="btn btn-success form-control">Submit</button>
+  </div>
+</div>

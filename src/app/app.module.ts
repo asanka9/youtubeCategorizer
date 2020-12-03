@@ -27,7 +27,10 @@ import { ItemComponent,SafePipe } from './shared/steppers/item/item.component';
 import { AppssComponent } from './shared/steppers/appss/appss.component';
 import {FormsModule} from '@angular/forms';
 import { ReportComponent } from './module/report/report.component';
-
+// These are for scl components
+import { SclComponent } from './module/scl/scl.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import { ReportComponent } from './module/report/report.component';
     ItemComponent,
     AppssComponent,
     SafePipe,
-    ReportComponent
+    ReportComponent,
+    SclComponent,
+
 
 
   ],
@@ -60,7 +65,9 @@ import { ReportComponent } from './module/report/report.component';
     MatSelectModule,
     MatFormFieldModule,
     MatCardModule,
-    FormsModule
+    MatInputModule,
+    FormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
