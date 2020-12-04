@@ -4,6 +4,9 @@ import {HomeComponent} from './module/home/home.component';
 import {SettingsComponent} from './module/settings/settings.component';
 import { ReportComponent } from './module/report/report.component';
 import { SclComponent } from './module/scl/scl.component';
+import {NoteComponent} from './module/note/note.component';
+import {TestComponent} from './module/test/test.component';
+
 
 
 
@@ -13,7 +16,10 @@ const routes: Routes = [
     {path:'',component:HomeComponent},
     {path:'setting',component:SettingsComponent},
     {path:'report',component:ReportComponent},
-    {path:'scl',component:SclComponent}
+    {path:'scl',component:SclComponent},
+    {path:'note',component:NoteComponent},
+    {path:'t1',component:TestComponent}
+
 
   ]}
 ];

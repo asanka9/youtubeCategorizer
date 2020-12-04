@@ -31,6 +31,8 @@ import { ReportComponent } from './module/report/report.component';
 import { SclComponent } from './module/scl/scl.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NoteComponent } from './module/note/note.component';
+import { TestComponent } from './module/test/test.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     SafePipe,
     ReportComponent,
     SclComponent,
+    NoteComponent,
+    TestComponent,
 
 
 
