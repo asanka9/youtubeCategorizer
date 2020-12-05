@@ -10,6 +10,7 @@ export class TestComponent implements OnInit {
   temp = [23,32,3,23,232]
 
   htmlList = [''];
+  htmlList_1 = [''];
   selectedTypeList = [''];
   selectedType : string;
   finalIndex = 0;
@@ -37,7 +38,7 @@ export class TestComponent implements OnInit {
   }
 
   saveButtonClick(value,index){
-    this.htmlList[index] = value;
+    this.htmlList_1[index] = value;
   }
 
   deleteButtonClick(index,name){
@@ -49,6 +50,8 @@ export class TestComponent implements OnInit {
   createNewButtonClick(index){
     this.htmlList.reverse();
     this.htmlList.push('');
+    this.htmlList_1.push('');
+
     this.htmlList.reverse();
     this.selectedTypeList.reverse();
     this.selectedTypeList.push('');
@@ -58,7 +61,6 @@ export class TestComponent implements OnInit {
   }
 
   selectType(event,num){
-    event.preventDefault();
     this.selectedTypeList[num] = event.value;
   }
 
@@ -66,7 +68,7 @@ export class TestComponent implements OnInit {
     let ouput = '';
     for (let index = 0; index < this.selectedTypeList.length; index++) {
       let type = this.selectedTypeList[index];
-      let value = this.htmlList[index];
+      let value = this.htmlList_1[index];
       ouput+= type + value;
     }
     alert(ouput);
