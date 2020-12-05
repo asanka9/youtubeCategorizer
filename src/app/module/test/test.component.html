@@ -41,7 +41,7 @@
         </mat-form-field>
       </td>
     </tr>
-    <tr *ngFor="let item of temp;let i = index" class="row mt-3">
+    <tr *ngFor="let item of htmlList;let i = index" class="row mt-3">
       <td style="width: 1000px;">
         <mat-card>
           <table>
@@ -49,7 +49,7 @@
               <td>
                 <mat-form-field appearance="none">
                   <mat-label>Number Of Questions :</mat-label>
-                  <mat-select disableRipple   >
+                  <mat-select disableRipple  (selectionChange)="selectType($event,i)"  >
                     <mat-option *ngFor="let num of temp" [value]="num">
                       {{num}}
                     </mat-option>
@@ -60,20 +60,20 @@
             <tr>
               <mat-form-field class="example-full-width"  style="width: 900px; height: 100px;">
                 <mat-label>Leave a comment</mat-label>
-                <textarea matInput placeholder="Ex. It makes me feel..." style="height: 100px;"></textarea>
+                <textarea matInput placeholder="Ex. It makes me feel..." style="height: 100px;" #txtValue></textarea>
               </mat-form-field>
             </tr>
           </table>
           <mat-card-actions class="mt-3">
             <tr>
-              <td>
-                <button class="btn btn-danger" style="width: 100px;" mat-raised-button (click)="deleteButtonClick(i)">DELETE</button>
+              <td *ngIf="finalIndex == i">
+                <button class="btn btn-danger" style="width: 100px;" mat-raised-button (click)="deleteButtonClick(i,selectedType)">DELETE</button>
               </td>
-              <td>
+              <td *ngIf="finalIndex == i">
                 <button class="btn btn-primary" style="width: 100px;" mat-raised-button (click)="createNewButtonClick(i)">NEW +</button>
               </td>
               <td>
-                <button class="btn btn-success" style="width: 200px;" mat-raised-button (click)="saveButtonClick(i)">SAVE</button>
+                <button class="btn btn-success" style="width: 200px;" mat-raised-button (click)="saveButtonClick(txtValue.value,i)">SAVE</button>
               </td>
             </tr>
           </mat-card-actions>
@@ -93,7 +93,7 @@
       </div>
     </tr>
     <tr>
-      <button style="width: 500px;"  mat-raised-button class="btn btn-success form-control mt-3 mb-3">ADD</button>
+      <button style="width: 500px;" (click)="genarateFinalString()"  mat-raised-button class="btn btn-success form-control mt-3 mb-3">ADD</button>
     </tr>
 
 
