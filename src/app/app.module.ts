@@ -33,6 +33,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NoteComponent } from './module/note/note.component';
 import { TestComponent } from './module/test/test.component';
+import { SubCreateComponent } from './module/sub-create/sub-create.component';
+import { SubjectsComponent } from './shared/subjects/subjects.component';
+import { TopicsComponent } from './shared/topics/topics.component';
+import { SubTopicsComponent } from './shared/sub-topics/sub-topics.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { TestComponent } from './module/test/test.component';
     SclComponent,
     NoteComponent,
     TestComponent,
+    SubCreateComponent,
+    SubjectsComponent,
+    TopicsComponent,
+    SubTopicsComponent,
 
 
 

@@ -2,8 +2,8 @@
     <tr >
       <td class="">
         <mat-form-field appearance="none">
-          <mat-label>Number Of Questions :</mat-label>
-          <mat-select disableRipple   >
+          <mat-label>Select <strong>SUBJECT</strong> :</mat-label>
+          <mat-select disableRipple [(value)]="selectedSubject"   >
             <mat-option *ngFor="let num of temp" [value]="num">
               {{num}}
             </mat-option>
@@ -12,8 +12,8 @@
       </td>
       <td>
         <mat-form-field appearance="none">
-          <mat-label>Number Of Questions :</mat-label>
-          <mat-select disableRipple   >
+          <mat-label>Select <strong>TOPIC</strong> :</mat-label>
+          <mat-select disableRipple [(value)]="selectedTopic"  >
             <mat-option *ngFor="let num of temp" [value]="num">
               {{num}}
             </mat-option>
@@ -22,8 +22,8 @@
       </td>
       <td>
         <mat-form-field appearance="none">
-          <mat-label>Number Of Questions :</mat-label>
-          <mat-select disableRipple   >
+          <mat-label>Select <strong>SUB-TOPIC</strong> :</mat-label>
+          <mat-select disableRipple  [(value)]="selectedSubTopic" >
             <mat-option *ngFor="let num of temp" [value]="num">
               {{num}}
             </mat-option>
@@ -32,12 +32,10 @@
       </td>
       <td>
         <mat-form-field appearance="none">
-          <mat-label>Number Of Questions :</mat-label>
-          <mat-select disableRipple   >
-            <mat-option *ngFor="let num of temp" [value]="num">
-              {{num}}
-            </mat-option>
-          </mat-select>
+          <mat-form-field class="example-full-width" style="width: 500px;">
+            <mat-label>Enter Lesson Name</mat-label>
+            <input matInput  >
+          </mat-form-field>
         </mat-form-field>
       </td>
     </tr>
@@ -60,7 +58,7 @@
             <tr>
               <mat-form-field class="example-full-width"  style="width: 900px; height: 100px;">
                 <mat-label>Leave a comment</mat-label>
-                <textarea matInput placeholder="Ex. It makes me feel..." style="height: 100px;" #txtValue></textarea>
+                <textarea (input)="onInput($event.target.value,i)" matInput placeholder="Ex. It makes me feel..." style="height: 100px;" #txtValue></textarea>
               </mat-form-field>
             </tr>
           </table>
@@ -75,6 +73,11 @@
               <td>
                 <button class="btn btn-success" style="width: 200px;" mat-raised-button (click)="saveButtonClick(txtValue.value,i)">SAVE</button>
               </td>
+              <td>
+
+                <i *ngIf="checkSavedOrNot(i)" style="font-size: 22px; color: green;" class="fas fa-check-circle pl-3"></i>
+                <i *ngIf="!checkSavedOrNot(i)" style="font-size: 22px; color: red;" class="fas fa-exclamation-triangle  pl-3"></i>
+              </td>
             </tr>
           </mat-card-actions>
         </mat-card>
@@ -84,11 +87,15 @@
       <div class="p-3">
         <ul style="" >
           <li class="li-style"  >
-            <i class="fas fa-share"></i> sasa
+            <i class="fas fa-share"></i> {{selectedSubject}}
           </li>
           <li class="li-style" >
-            <i class="fas fa-share"></i> sds
+            <i class="fas fa-share"></i> {{selectedTopic}}
           </li>
+          <li class="li-style" >
+            <i class="fas fa-share"></i> {{selectedSubTopic}}
+          </li>
+
         </ul>
       </div>
     </tr>

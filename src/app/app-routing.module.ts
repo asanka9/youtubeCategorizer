@@ -6,6 +6,7 @@ import { ReportComponent } from './module/report/report.component';
 import { SclComponent } from './module/scl/scl.component';
 import {NoteComponent} from './module/note/note.component';
 import {TestComponent} from './module/test/test.component';
+import {SubCreateComponent} from './module/sub-create/sub-create.component';
 
 
 
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path:'report',component:ReportComponent},
     {path:'scl',component:SclComponent},
     {path:'note',component:NoteComponent},
-    {path:'t1',component:TestComponent}
+    {path:'t1',component:TestComponent},
+    {path:'subc',component:SubCreateComponent}
 
 
   ]}

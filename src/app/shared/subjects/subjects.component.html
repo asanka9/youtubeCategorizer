@@ -1,0 +1,36 @@
+<div class="row mt-4">
+  <div class="col-6">
+    <cdk-virtual-scroll-viewport itemSize="400" class="scroll-container">
+      <div *ngFor="let item of appList" class="scroll-item">
+        <mat-card class="example-card">
+          <p><strong>App Name :</strong> {{ item.payload.doc.data().appName }}</p>
+          <p><strong>Database Name :</strong> {{ item.payload.doc.data().databaseName }}</p>
+          <mat-card-actions>
+            <button class="btn btn-danger" (click)="deleteApp(item)" mat-raised-button>DELETE</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+  <div class="col-6">
+    <div>
+        <mat-form-field class="example-full-width" style="width: 500px;">
+          <mat-label>Subject Name : </mat-label>
+          <input matInput  >
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 500px;">
+          <mat-label>Image URL : </mat-label>
+          <input matInput  >
+        </mat-form-field>
+        <mat-form-field appearance="none" style="width: 500px;">
+          <mat-label>Select Grade </mat-label>
+          <mat-select>
+            <mat-option *ngFor="let food of youtubeList" [value]="food">
+              {{food}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <button type="submit" class="btn btn-success" style="width: 300px;" (click)="addApp()" mat-raised-button>ADD</button>
+    </div>
+  </div>
+</div>

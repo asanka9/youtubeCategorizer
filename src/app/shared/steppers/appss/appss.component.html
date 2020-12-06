@@ -5,11 +5,8 @@
         <mat-card class="example-card">
           <p><strong>App Name :</strong> {{ item.payload.doc.data().appName }}</p>
           <p><strong>Database Name :</strong> {{ item.payload.doc.data().databaseName }}</p>
-          <p><strong>Type :</strong> {{ item.payload.doc.data().type }}</p>
-
-
           <mat-card-actions>
-            <button class="btn btn-danger" (click)="deleteApp(item)" mat-button>DELETE</button>
+            <button class="btn btn-danger" (click)="deleteApp(item)" mat-raised-button>DELETE</button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -17,17 +14,16 @@
   </div>
   <div class="col-6">
     <div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">App Name :</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="appName"
-          placeholder="App Name">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Database Name :</label>
-        <input  [(ngModel)]="databaseName" type="text" class="form-control" id="exampleInputPassword1" placeholder="Database Name">
-      </div>
+      <mat-form-field  style="width: 500px;">
+        <mat-label>App Name :</mat-label>
+        <input [(ngModel)]="appName" matInput  >
+      </mat-form-field>
+      <mat-form-field  style="width: 500px;">
+        <mat-label>DataBase Name :</mat-label>
+        <input [(ngModel)]="databaseName" matInput  >
+      </mat-form-field>
 
-      <button type="submit" class="btn btn-success"  (click)="addApp()" mat-button>ADD</button>
+      <button style="width: 300px;" type="submit" class="btn btn-success"  (click)="addApp()" mat-raised-button>ADD</button>
     </div>
   </div>
 </div>
